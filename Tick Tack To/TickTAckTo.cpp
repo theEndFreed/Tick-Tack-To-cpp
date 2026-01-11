@@ -3,6 +3,7 @@
 #include <iostream>
 #include <algorithm>
 #include <random>
+#include <cstdlib>
 
 void PrintField(const std::vector<std::vector<std::string>>& v) {
     for (const auto& row : v) {
@@ -97,8 +98,11 @@ int main() {
     std::cout<< " " << std::endl;
     PrintField(Play_field);
     std::cout<< " " << std::endl;
-    std::cout << "Ende of Game";
-
+    std::cout << "Ende of Game" << std::endl;
+    std::cout << "Press any Key to Exit" << std::endl;
+    
+    system("pause");
+    
     return 0;
 } 
 
