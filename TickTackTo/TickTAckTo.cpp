@@ -19,8 +19,17 @@ int UserInput(std::vector<std::vector<std::string>>& v){
     int col;
 
     std::cout << "Enter row and column (0, 1, or 2) to place your mark: " << std::endl;
+    
     while(true) {
         std::cin >> row >> col;
+
+        if(std::cin.fail()){
+            std::cin.clear();
+            std::cin.ignore(1000, '\n');
+            std::cout << "Invalide input, pleas enter number!\n";
+            continue;
+        }
+
         if(row >= 0 && row <= 2 && col >= 0 && col <= 2 && v[row][col] == "#") break;
         std::cout << "Invalid input, try again.\n";
     }
@@ -99,10 +108,11 @@ int main() {
     PrintField(Play_field);
     std::cout<< " " << std::endl;
     std::cout << "Ende of Game" << std::endl;
-    std::cout << "Press any Key to Exit" << std::endl;
+    std::cout << "Press Enter to Exit" << std::endl;
     
-    system("pause");
-    
+    std::cin.ignore();
+    std::cin.get();
+
     return 0;
 } 
 
